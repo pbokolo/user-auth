@@ -1,0 +1,55 @@
+/*=============================================
+=                #Variables                   =
+=============================================*/
+
+/**
+ *
+ * Table of content
+ *
+ * COLORS
+ * Brand colors...........Main brand colors. To be used the most
+ * Secondary colors.......White and black, gray scale, secondary colors
+ * Utility colors.........Used to represent states: error, warn, etc.
+ *
+ * TYPOGRAPHY
+ * Font families..........The fonts used in the design system
+ * Sizes..................Font sizes for body texts, paragraphs, inputs
+ * Heading sizes..........Font sizing for page headings
+ *
+ * BREAKPOINTS
+ * Breakpoints............Global responsive breakpoints definitions
+ *
+ * SPACING
+ * Spacing................Global set of fixed spacing variables
+ */
+
+/*=============================================
+ =                    COLORS                  =
+ =============================================*/
+
+/* Brand colors */
+
+$gray-200: #eeeeee;
+$gray-500: #9e9e9e;
+$gray-700: #616161;
+
+/* Secondary colors */
+$blue-200: #90caf9;
+$blue-500: #2196f3;
+$blue-700: #1976d2;
+
+/* Neutral colors */
+$gray-light-1: #faf9f9;
+$gray-light-2: #f4f2f2;
+$gray-light-3: #f0eeee;
+$gray-light-4: #ccc;
+$white: #ffffff;
+
+/* Utility colors */
+$green-200: #a5d6a7;
+$green-500: #4caf50;
+$green-700: #388e3c;
+
+$red-200: #ef9a9a;
+$red-500: #f44336;
+$red-700: #d32f2f;

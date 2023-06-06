@@ -12,29 +12,36 @@ export default function SignInForm() {
   };
   return (
     <>
-      <form onSubmit={(e) => controller.handleSubmit(e, creds, setCreds)}>
-        <TextInput
-          type="email"
-          id="email"
-          label="Email"
-          placeholder="example@example.com"
-          value={creds.email}
-          changeHandler={changeHandler}
-        />
-        <br />
-        <TextInput
-          type="password"
-          id="password"
-          label="Password"
-          value={creds.password}
-          changeHandler={changeHandler}
-        />
-        <br />
+      <form
+        className="form"
+        onSubmit={(e) => controller.handleSubmit(e, creds, setCreds)}
+      >
+        <fieldset className="fieldset">
+          <TextInput
+            type="email"
+            id="email"
+            label="Email"
+            placeholder="example@example.com"
+            value={creds.email}
+            changeHandler={changeHandler}
+          />
+        </fieldset>
+
+        <fieldset className="fieldset">
+          <TextInput
+            type="password"
+            id="password"
+            label="Password"
+            value={creds.password}
+            changeHandler={changeHandler}
+          />
+        </fieldset>
+
         <FormSubmitBtn value="Sign in" />
+        <p>
+          Not yet in? <span style={{ color: "blue" }}>Signup here</span>
+        </p>
       </form>
-      <p>
-        Not yet in? <span style={{ color: "blue" }}>Signup here</span>
-      </p>
     </>
   );
 }
