@@ -1,0 +1,15 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  // Explicitly defines 1rem to be 10px(10px/16px = 0.625px)
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
