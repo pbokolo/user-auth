@@ -1,0 +1,27 @@
+.btn {
+  border: none;
+  padding: $container-padding--xs $container-padding;
+  border-radius: $container-border-radius;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 500;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-primary),
+    var(--color-primary--dark)
+  );
+  transition: all 0.2s;
+  @include box-shadow--sm;
+
+  &:hover {
+    background-image: linear-gradient(
+      to right bottom,
+      var(--color-primary--dark),
+      var(--color-primary)
+    );
+  }
+
+  &:active {
+    @include box-shadow--xs;
+  }
+}
