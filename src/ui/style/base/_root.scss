@@ -1,6 +1,7 @@
 :root {
-  --color-primary: #{$gray-500};
-  --color-onPrimary: #{$white};
+  --color-main-background: #{$gray-100};
+  --color-primary: #{$gray-300};
+  --color-onPrimary: #{$gray-900};
   --color-valid: #{$green-500};
   --color-error: #{$red-500};
 }
