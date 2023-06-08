@@ -1,4 +1,30 @@
 .form {
   background-color: var(--color-primary);
   color: var(--color-onPrimary);
+
+  @media only screen and (min-width: 200px) {
+    width: 18rem;
+    padding: $container-padding--xs;
+    border-radius: $container-border-radius--xs;
+  }
+
+  @media only screen and (min-width: 300px) {
+    width: 20rem;
+    padding: $container-padding--xs;
+    border-radius: $container-border-radius--xs;
+  }
+
+  @media only screen and (min-width: 400px) {
+    width: 25rem;
+    padding: $container-padding;
+    border-radius: $container-border-radius;
+  }
+
+  @media only screen and (min-width: 800px) {
+    width: 30rem;
+    padding: $container-padding;
+    border-radius: $container-border-radius;
+  }
+
+  @include box-shadow;
 }
