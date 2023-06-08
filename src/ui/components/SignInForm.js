@@ -38,8 +38,8 @@ export default function SignInForm() {
         </fieldset>
 
         <FormSubmitBtn value="Sign in" />
-        <p>
-          Not yet in? <span style={{ color: "blue" }}>Signup here</span>
+        <p className="signup__cta">
+          Not yet in? <span className="signup__cta-link">Signup here</span>
         </p>
       </form>
     </>
