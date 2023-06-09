@@ -1,33 +1,35 @@
 .form {
   background-color: var(--color-primary);
   color: var(--color-onPrimary);
+  @include form-dimensions;
 
-  @media only screen and (min-width: 200px) {
-    width: 18rem;
-    height: 27rem;
+  /* @media only screen and (min-width: 200px) {
+    width: $form-width--xs;
+    height: $form-height--xs;
     padding: $container-padding--xs;
     border-radius: $container-border-radius--xs;
   }
 
   @media only screen and (min-width: 300px) {
-    width: 20rem;
-    height: 30rem;
+    width: $form-width--sm;
+    height: $form-height--sm;
     padding: $container-padding--xs;
     border-radius: $container-border-radius--xs;
   }
 
   @media only screen and (min-width: 400px) {
-    width: 25rem;
-    height: 37.5rem;
+    width: $form-width--md;
+    height: $form-height--md;
     padding: $container-padding;
     border-radius: $container-border-radius;
   }
 
   @media only screen and (min-width: 800px) {
-    width: 40rem;
+    width: $form-width--lg;
+    height: $form-height--lg;
     padding: $container-padding;
     border-radius: $container-border-radius;
-  }
+  } */
 
   @include box-shadow;
 

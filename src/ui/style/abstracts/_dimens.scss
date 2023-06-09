@@ -2,3 +2,13 @@ $container-padding: 1.6rem;
 $container-padding--xs: 0.5rem;
 $container-border-radius: $container-padding;
 $container-border-radius--xs: $container-padding--xs;
+
+$form-ratio: 1.15;
+$form-width--xs: 18rem;
+$form-height--xs: calc($form-width--xs * $form-ratio);
+$form-width--sm: 25rem;
+$form-height--sm: calc($form-width--sm * $form-ratio);
+$form-width--md: 30rem;
+$form-height--md: calc($form-width--md * $form-ratio);
+$form-width--lg: 35rem;
+$form-height--lg: calc($form-width--lg * $form-ratio);

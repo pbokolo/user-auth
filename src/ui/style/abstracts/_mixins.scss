@@ -52,3 +52,29 @@
     }
   }
 }
+
+@mixin form-dimensions() {
+  @media only screen and (min-width: 200px) {
+    width: $form-width--xs;
+    height: $form-height--xs;
+    padding: $container-padding--xs;
+  }
+
+  @media only screen and (min-width: 300px) {
+    width: $form-width--sm;
+    height: $form-height--sm;
+    padding: $container-padding--xs;
+  }
+
+  @media only screen and (min-width: 400px) {
+    width: $form-width--md;
+    height: $form-height--md;
+    padding: $container-padding;
+  }
+
+  @media only screen and (min-width: 800px) {
+    width: $form-width--lg;
+    height: $form-height--lg;
+    padding: $container-padding;
+  }
+}
