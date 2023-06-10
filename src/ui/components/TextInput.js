@@ -6,11 +6,11 @@ export default function TextInput({
   id,
   label,
   value,
-  placeholder,
+
   changeHandler,
 }) {
   return (
-    <div className="textinput">
+    <>
       <input
         className="textinput__text"
         placeholder={label || ""}
@@ -22,6 +22,6 @@ export default function TextInput({
       <label className="textinput__label" htmlFor={id}>
         {label}
       </label>
-    </div>
+    </>
   );
 }
