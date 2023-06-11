@@ -1,18 +1,17 @@
 .textinput {
   &__label {
     font-size: 1.1rem;
-    opacity: 0;
+    padding: 0 1.6rem;
     position: absolute;
-    top: 1.5rem;
-    left: 1.6rem;
-
-    transition: all 0.2s;
+    top: 10;
+    left: 10;
+    transition: all 0.4s cubic-bezier(0.21, 1.76, 0.83, 1.61);
   }
   &__text {
     border: none;
     @include textinput-dimensions;
     background-color: var(--color-primary);
-    transition: all 0.2s;
+    transition: all 2s;
 
     &:focus {
       background-color: $white;
@@ -27,8 +26,13 @@
       }
     }
 
+    &:placeholder-shown + .textinput__label {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+
     &:focus + .textinput__label {
-      top: -1.7rem;
+      transform: translateY(0);
       opacity: 1;
     }
   }

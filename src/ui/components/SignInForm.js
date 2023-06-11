@@ -21,7 +21,7 @@ export default function SignInForm() {
             type="email"
             id="email"
             label="Email"
-            placeholder="example@example.com"
+            placeholder="Email: email@example.com"
             value={creds.email}
             changeHandler={changeHandler}
           />
@@ -32,12 +32,15 @@ export default function SignInForm() {
             type="password"
             id="password"
             label="Password"
+            placeholder={"Password: secret"}
             value={creds.password}
             changeHandler={changeHandler}
           />
         </fieldset>
 
-        <FormSubmitBtn value="Sign in" />
+        <div>
+          <FormSubmitBtn value="Sign in" />
+        </div>
         <p className="signup__cta">
           Not yet in? <span className="signup__cta-link">Signup here</span>
         </p>

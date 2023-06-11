@@ -1,10 +1,11 @@
 .btn {
   border: none;
-  padding: $container-padding--xs $container-padding;
-  border-radius: $container-border-radius;
+  padding: $container-padding--sm $container-padding;
+  border-radius: $container-border-radius--xs;
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 500;
+  font-size: 2rem;
   background-image: linear-gradient(
     to right bottom,
     var(--color-primary),
@@ -23,5 +24,9 @@
 
   &:active {
     @include box-shadow--xs;
+  }
+
+  &--submit {
+    // border-radius: 1rem;
   }
 }

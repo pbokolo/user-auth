@@ -6,14 +6,14 @@ export default function TextInput({
   id,
   label,
   value,
-
+  placeholder,
   changeHandler,
 }) {
   return (
     <>
       <input
         className="textinput__text"
-        placeholder={label || ""}
+        placeholder={placeholder || ""}
         type={type}
         id={id}
         value={value}
