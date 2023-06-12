@@ -6,7 +6,11 @@ export default function AppBar() {
   return (
     <div className="appbar">
       <Logo />
-      <ProfilePicture />
+      <ProfilePicture
+        className={
+          "user user__profile user__profile-picture user__profile-picture--small"
+        }
+      />
     </div>
   );
 }

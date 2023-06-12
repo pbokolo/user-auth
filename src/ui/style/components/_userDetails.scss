@@ -1,0 +1,14 @@
+.user__details {
+  background-color: var(--color-surface-background);
+  @include box-shadow--sm;
+  border-radius: $container-border-radius--xs;
+  overflow: hidden;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  &-details {
+    padding: $container-padding $container-padding--sm $container-padding--sm 0;
+  }
+}

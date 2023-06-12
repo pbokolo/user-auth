@@ -7,7 +7,7 @@
   left: 0;
 
   display: grid;
-  grid-template-columns: 10rem 4.5rem repeat(10, 1fr) 4.5rem 10rem;
+  grid-template-columns: 30rem 4.5rem repeat(10, 1fr) 4.5rem 30rem;
   align-items: center;
 
   .app__logo {
@@ -15,7 +15,7 @@
     justify-self: center;
   }
 
-  .user__profile-picture {
+  .user__profile-picture--small {
     grid-column: 13 / 14;
     justify-self: center;
   }

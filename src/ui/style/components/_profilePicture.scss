@@ -1,12 +1,31 @@
 .user {
   &__profile {
+    overflow-y: hidden;
     &-picture {
       display: inline-block;
-      width: 4.1rem;
-      height: 4.1rem;
-
-      border-radius: 50%;
       cursor: pointer;
+
+      &--small {
+        width: 4.1rem;
+        height: 4.1rem;
+        border-radius: 50%;
+      }
+
+      &--regular {
+        width: 35rem;
+        height: 100%;
+      }
+    }
+
+    &-picture:hover + &-edit {
+      transform: translateY(-3rem);
+    }
+
+    &-edit {
+      background-color: var(--color-back-transp);
+      color: var(--color-white);
+      transition: all 0.2s;
+      // transform: translateY(-3rem);
     }
   }
 }

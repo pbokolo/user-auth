@@ -1,25 +1,13 @@
 import React from "react";
 import { AppBar } from "../components";
+import UserDetails from "../components/UserDetails";
 
 export default function Profile() {
   return (
     <div className="page page__profile">
       <AppBar />
       <main>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
-        <div>Main content</div>
+        <UserDetails />
       </main>
     </div>
   );

@@ -1,8 +1,11 @@
 import React from "react";
 import dog from "../../assets/dog.jpg";
 
-export default function ProfilePicture() {
+export default function ProfilePicture({ className }) {
   return (
-    <img src={dog} className="user__profile-picture" alt="user profile"></img>
+    <div className={className}>
+      <img src={dog} className={className} alt="user profile"></img>
+      <p className="user user__profile user__profile-edit">Edit</p>
+    </div>
   );
 }
