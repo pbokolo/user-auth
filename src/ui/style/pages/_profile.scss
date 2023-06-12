@@ -1,3 +1,7 @@
 .page {
   @include page;
+
+  main {
+    margin-top: 4.5rem;
+  }
 }

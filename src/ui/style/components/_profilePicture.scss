@@ -1,0 +1,12 @@
+.user {
+  &__profile {
+    &-picture {
+      display: inline-block;
+      width: 4.1rem;
+      height: 4.1rem;
+
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+}

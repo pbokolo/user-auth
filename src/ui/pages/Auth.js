@@ -2,7 +2,7 @@ import React from "react";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 
-import SignInForm from "../components/SignInForm";
+import { SignInForm } from "../components";
 
 export default function Auth() {
   return (
