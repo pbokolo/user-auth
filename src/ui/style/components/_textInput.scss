@@ -5,13 +5,14 @@
     position: absolute;
     top: 10;
     left: 10;
+    color: $gray-700;
     transition: all 0.4s cubic-bezier(0.21, 1.76, 0.83, 1.61);
   }
   &__text {
     border: none;
     @include textinput-dimensions;
     background-color: var(--color-primary);
-    transition: all 2s;
+    transition: all 0.4s;
 
     &:focus {
       background-color: $white;
@@ -24,6 +25,14 @@
       &:invalid + .textinput__label {
         color: var(--color-error);
       }
+    }
+
+    &::placeholder {
+      transition: all 0.2s;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
     }
 
     &:placeholder-shown + .textinput__label {

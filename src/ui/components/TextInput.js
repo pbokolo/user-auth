@@ -7,6 +7,7 @@ export default function TextInput({
   label,
   value,
   placeholder,
+  required,
   changeHandler,
 }) {
   return (
@@ -17,6 +18,7 @@ export default function TextInput({
         type={type}
         id={id}
         value={value}
+        required={required}
         onChange={changeHandler}
       />
       <label className="textinput__label" htmlFor={id}>

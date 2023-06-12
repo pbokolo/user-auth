@@ -23,7 +23,9 @@ export default function SignInForm() {
             label="Email"
             placeholder="Email: email@example.com"
             value={creds.email}
+            required={true}
             changeHandler={changeHandler}
+
           />
         </fieldset>
 
@@ -34,6 +36,7 @@ export default function SignInForm() {
             label="Password"
             placeholder={"Password: secret"}
             value={creds.password}
+            required={true}
             changeHandler={changeHandler}
           />
         </fieldset>
