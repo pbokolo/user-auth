@@ -1,8 +1,13 @@
 :root {
   --color-main-background: #{$gray-100};
   --color-primary: #{$gray-100};
-  --color-primary--dark: #{$gray-300};
+  --color-primary--light: #{$gray-300};
+  --color-primary--dark: #{$gray-400};
   --color-onPrimary: #{$gray-900};
+  --color-secondary: #{$blue-500};
+  --color-secondary--light: #{$blue-200};
+  --color-secondary--dark: #{$blue-700};
+  --color-white: #{$white};
   --color-box-shadow: #{$gray-500};
   --color-valid: #{$green-500};
   --color-error: #{$red-500};

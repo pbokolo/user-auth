@@ -25,4 +25,26 @@
   &:active {
     @include box-shadow--xs;
   }
+
+  &--primary {
+    background-image: linear-gradient(
+      to right bottom,
+      var(--color-secondary),
+      var(--color-secondary--dark)
+    );
+
+    &:hover {
+      background-image: linear-gradient(
+        to right bottom,
+        var(--color-secondary--light),
+        var(--color-secondary),
+        var(--color-secondary--light)
+      );
+    }
+  }
+
+  &--link {
+    text-decoration: none;
+    color: var(--color-white);
+  }
 }
