@@ -11,4 +11,10 @@
   &-details {
     padding: $container-padding $container-padding--sm $container-padding--sm 0;
   }
+
+  .user__details-detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 }
