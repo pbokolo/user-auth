@@ -7,14 +7,28 @@ import { controller } from "../../controller/signinForm";
 
 export default function SignInForm() {
   const [creds, setCreds] = useState(controller.initialCreds);
+  const [type, setType] = useState("signin");
+
+  const authMode = type === "signin" ? "Signup here" : "Back to signin";
   const changeHandler = (e) => {
     controller.handleChange(e, creds, setCreds);
+  };
+
+  const handleAuthModeSwitch = () => {
+    switch (type) {
+      case "signin":
+        setType("signup");
+        break;
+      case "signup":
+        setType("signin");
+        break;
+    }
   };
   return (
     <>
       <form
         className="form"
-        onSubmit={(e) => controller.handleSubmit(e, creds, setCreds)}
+        onSubmit={(e) => controller.handleSubmit(e, creds, type, setCreds)}
       >
         <fieldset className="fieldset">
           <TextInput
@@ -25,7 +39,6 @@ export default function SignInForm() {
             value={creds.email}
             required={true}
             changeHandler={changeHandler}
-
           />
         </fieldset>
 
@@ -41,11 +54,30 @@ export default function SignInForm() {
           />
         </fieldset>
 
+        {type === "signup" ? (
+          <fieldset className="fieldset">
+            <TextInput
+              type="password"
+              id="secondPwd"
+              label="Retype password"
+              placeholder={"Same as the previous one"}
+              value={creds.secondPwd}
+              required={true}
+              changeHandler={changeHandler}
+            />
+          </fieldset>
+        ) : (
+          ""
+        )}
+
         <div>
-          <FormSubmitBtn value="Sign in" />
+          <FormSubmitBtn value={type === "signin" ? "Sign in" : "Sign up"} />
         </div>
         <p className="signup__cta">
-          Not yet in? <span className="signup__cta-link">Signup here</span>
+          Not yet in?{" "}
+          <span className="signup__cta-link" onClick={handleAuthModeSwitch}>
+            {authMode}
+          </span>
         </p>
       </form>
     </>
