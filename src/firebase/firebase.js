@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 const configs = {
   apiKey: "AIzaSyCo1gYRg9no4rTIRuAcuttyU6yPe4gL3ms",
   authDomain: "auth-fb-f5a08.firebaseapp.com",
@@ -9,13 +10,14 @@ const configs = {
 };
 class Firebase {
   #app;
-
+  #auth;
   constructor() {
     this.#app = initializeApp(configs);
+    this.#auth = getAuth(this.#app);
   }
 
-  tellMe() {
-    console.log("I love you");
+  getUser() {
+    return this.#auth.currentUser;
   }
 }
 
