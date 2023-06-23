@@ -74,7 +74,7 @@ export default function SignInForm() {
           <FormSubmitBtn value={type === "signin" ? "Sign in" : "Sign up"} />
         </div>
         <p className="signup__cta">
-          Not yet in?{" "}
+          {type === "signin" ? "Not yet in? " : "Already in? "}
           <span className="signup__cta-link" onClick={handleAuthModeSwitch}>
             {authMode}
           </span>

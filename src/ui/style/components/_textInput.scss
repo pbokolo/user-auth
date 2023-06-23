@@ -11,7 +11,7 @@
   &__text {
     border: none;
     @include textinput-dimensions;
-    background-color: var(--color-primary);
+    background-color: var(--color-surfaces);
     transition: all 0.4s;
 
     &:focus {

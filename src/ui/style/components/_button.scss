@@ -6,40 +6,18 @@
   cursor: pointer;
   font-weight: 500;
   font-size: 1.6rem;
-  background-image: linear-gradient(
-    to right bottom,
-    var(--color-primary),
-    var(--color-primary--dark)
-  );
+
   transition: all 0.2s;
   @include box-shadow--sm;
-
-  &:hover {
-    background-image: linear-gradient(
-      to right bottom,
-      var(--color-primary--dark),
-      var(--color-primary)
-    );
-  }
-
   &:active {
     @include box-shadow--xs;
   }
 
   &--primary {
-    background-image: linear-gradient(
-      to right bottom,
-      var(--color-secondary),
-      var(--color-secondary--dark)
-    );
+    background-color: var(--color-primary--dark);
 
     &:hover {
-      background-image: linear-gradient(
-        to right bottom,
-        var(--color-secondary--light),
-        var(--color-secondary),
-        var(--color-secondary--light)
-      );
+      background-color: var(--color-primary);
     }
   }
 
