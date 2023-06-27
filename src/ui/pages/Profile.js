@@ -11,9 +11,9 @@ export default function Profile() {
   const firebase = useContext(FBContext);
 
   useEffect(() => {
-    if (!firebase.getUser()) {
-      navigate("/auth", { replace: true });
-    }
+    firebase.getAuth().onAuthStateChanged((user) => {
+      if (!user) navigate("/auth");
+    });
   }, [null]);
 
   return (

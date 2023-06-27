@@ -1,5 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+
 const configs = {
   apiKey: "AIzaSyCo1gYRg9no4rTIRuAcuttyU6yPe4gL3ms",
   authDomain: "auth-fb-f5a08.firebaseapp.com",
@@ -16,19 +21,19 @@ class Firebase {
     this.#auth = getAuth(this.#app);
   }
 
+  getAuth() {
+    return this.#auth;
+  }
+
   getUser() {
     return this.#auth.currentUser;
   }
 
-  signupWithEmail(email, password) {
-    console.log(
-      `Should create a user account. \nEmail: ${email}\nPassword: ${password}`
-    );
+  async signupWithEmail(email, password) {
+    return createUserWithEmailAndPassword(this.#auth, email, password);
   }
-  signinWithEmail(email, password) {
-    console.log(
-      `Should signin the user.\nEmail: ${email}\nPassword: ${password}`
-    );
+  async signinWithEmail(email, password) {
+    return signInWithEmailAndPassword(this.#auth, email, password);
   }
 }
 

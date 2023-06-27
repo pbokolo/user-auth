@@ -7,7 +7,7 @@ class SignInForm {
 
   constructor() {}
 
-  handleSubmit(e, data, setState) {
+  async handleSubmit(e, data, setState) {
     e.preventDefault();
     const { todo, email, password, secondPwd } = data;
 
@@ -31,11 +31,21 @@ class SignInForm {
 
     switch (todo) {
       case this.TO_DO_SIGNIN:
-        firebase.signinWithEmail(email, password);
+        try {
+          await firebase.signinWithEmail(email, password);
+          console.log("User signed in!");
+        } catch (error) {
+          console.error(error);
+        }
         break;
 
       case this.TO_DO_SIGNUP:
-        firebase.signupWithEmail(email, password);
+        try {
+          await firebase.signupWithEmail(email, password);
+          console.log("User signed up!");
+        } catch (error) {
+          console.error(error);
+        }
         break;
     }
 
