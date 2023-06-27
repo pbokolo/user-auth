@@ -1,18 +1,44 @@
+import { firebase } from "../firebase/firebase";
+
 class SignInForm {
-  initialCreds = { email: "", password: "", secondPwd: "" };
+  initialCreds = { todo: "signin", email: "", password: "", secondPwd: "" };
+  TO_DO_SIGNIN = "signin";
+  TO_DO_SIGNUP = "signup";
+
   constructor() {}
 
-  handleSubmit(e, data, type, setState) {
+  handleSubmit(e, data, setState) {
     e.preventDefault();
+    const { todo, email, password, secondPwd } = data;
 
-    if (type === "signup" && data.password !== data.secondPwd) {
+    if (!email) {
+      console.error("The email field can't be empty");
+      return;
+    }
+
+    if (!password) {
+      console.error("The password field can't be empty");
+      return;
+    }
+
+    if (todo === this.TO_DO_SIGNUP && password !== secondPwd) {
       console.error(
-        `The 2 passwords are differents: ${data.password} is not the same as ${data.secondPwd}`
+        `The 2 passwords are differents: ${password} is not the same as ${secondPwd}`
       );
 
       return;
     }
-    console.log(type, data);
+
+    switch (todo) {
+      case this.TO_DO_SIGNIN:
+        firebase.signinWithEmail(email, password);
+        break;
+
+      case this.TO_DO_SIGNUP:
+        firebase.signupWithEmail(email, password);
+        break;
+    }
+
     setState(this.initialCreds);
   }
 

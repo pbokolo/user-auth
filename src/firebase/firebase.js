@@ -19,6 +19,17 @@ class Firebase {
   getUser() {
     return this.#auth.currentUser;
   }
+
+  signupWithEmail(email, password) {
+    console.log(
+      `Should create a user account. \nEmail: ${email}\nPassword: ${password}`
+    );
+  }
+  signinWithEmail(email, password) {
+    console.log(
+      `Should signin the user.\nEmail: ${email}\nPassword: ${password}`
+    );
+  }
 }
 
 const firebase = new Firebase();
