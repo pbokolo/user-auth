@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { FBContext } from "../../firebase";
@@ -11,19 +11,19 @@ import { SignInForm } from "../components";
 export default function Auth() {
   const firebase = useContext(FBContext);
   const navigate = useNavigate();
+  const [icon, setIcon] = useState(<LockOutlinedIcon fontSize="big" />);
 
   useEffect(() => {
     firebase.getAuth().onAuthStateChanged((user) => {
-      if (user) navigate("/");
+      if (user) {
+        setIcon(<LockOpenOutlinedIcon fontSize="big" />);
+        setTimeout(() => navigate("/"), 1000);
+      }
     });
   }, [null]);
   return (
     <div className="page page__auth">
-      <h1>
-        {<LockOutlinedIcon className="icon icon--big" fontSize="big" /> || (
-          <LockOpenOutlinedIcon className="icon icon--big" fontSize="big" />
-        )}
-      </h1>
+      <h1>{icon}</h1>
       <SignInForm />
     </div>
   );
