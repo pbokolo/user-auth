@@ -3,6 +3,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 
 const configs = {
@@ -29,6 +30,9 @@ class Firebase {
     return this.#auth.currentUser;
   }
 
+  async updateUserProfile(userData) {
+    return updateProfile(this.#auth.currentUser, userData);
+  }
   async signupWithEmail(email, password) {
     return createUserWithEmailAndPassword(this.#auth, email, password);
   }

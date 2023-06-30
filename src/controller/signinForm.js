@@ -52,6 +52,18 @@ class SignInForm {
     setState(this.initialCreds);
   }
 
+  async updateProfile() {
+    try {
+      await firebase.updateUserProfile({
+        displayName: "Pierrot",
+        phoneNumber: "+243970464232",
+      });
+      console.log("Updated");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   handleChange(e, creds, setState) {
     setState({ ...creds, [e.target.id]: e.target.value });
   }

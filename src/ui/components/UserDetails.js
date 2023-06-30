@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { firebase } from "../../firebase";
 import {
   Person,
@@ -8,9 +8,14 @@ import {
 } from "@mui/icons-material";
 import ProfilePicture from "./ProfilePicture";
 
-export default function UserDetails() {
-  const user = firebase.getUser();
+import { controller } from "../../controller/signinForm";
 
+export default function UserDetails() {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const currentUser = firebase.getUser();
+    setUser(currentUser);
+  }, [user]);
   return (
     <div className="user__details">
       <div className="user__details-picture">
@@ -21,7 +26,10 @@ export default function UserDetails() {
           url={user?.photoURL}
         />
       </div>
-      <div className="user__details-details">
+      <div
+        className="user__details-details"
+        onClick={() => controller.updateProfile()}
+      >
         <p className="user__details-detail">
           <Person className="icon" />
           <span className="detail">{user?.displayName || "To be defined"}</span>
