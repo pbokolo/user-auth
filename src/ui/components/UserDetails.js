@@ -11,7 +11,9 @@ import ProfilePicture from "./ProfilePicture";
 import { controller } from "../../controller/signinForm";
 
 export default function UserDetails() {
+  const inits = { displayName: "Unset", email: "Unset", phoneNumber: "Unset" };
   const [user, setUser] = useState(null);
+  const { displayName, email, phoneNumber } = user || inits;
   useEffect(() => {
     const currentUser = firebase.getUser();
     setUser(currentUser);
@@ -32,20 +34,22 @@ export default function UserDetails() {
       >
         <p className="user__details-detail">
           <Person className="icon" />
-          <span className="detail">{user?.displayName || "To be defined"}</span>
+          <span className="detail">{displayName}</span>
         </p>
         <p className="user__details-detail">
           <ContactPhone className="icon" />{" "}
-          <span className="detail">{user?.phoneNumber || "To be defined"}</span>
+          <span className="detail">{phoneNumber}</span>
         </p>
         <p className="user__details-detail">
           <ContactMail className="icon" />
-          <span className="detail">{user?.email || "To be defined"}</span>
+          <span className="detail">{email}</span>
         </p>
         <p className="user__details-detail">
           <LocationCity className="icon" />
           <span className="detail">Address</span>
         </p>
+
+        <div className="user__details-update">Update</div>
       </div>
     </div>
   );

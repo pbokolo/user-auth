@@ -10,11 +10,26 @@
 
   &-details {
     padding: $container-padding $container-padding--sm $container-padding--sm 0;
+    flex-grow: 1;
+    border: 1px solid red;
   }
 
-  .user__details-detail {
+  &-detail {
     display: flex;
     align-items: center;
     gap: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 1rem 0;
+
+    &:hover {
+      background-color: $gray-300;
+    }
+  }
+
+  &-update {
+    border: 1px solid rebeccapurple;
+    height: 100%;
+    margin-left: $container-padding--sm;
   }
 }
