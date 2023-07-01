@@ -13,11 +13,18 @@ import { controller } from "../../controller/signinForm";
 export default function UserDetails() {
   const inits = { displayName: "Unset", email: "Unset", phoneNumber: "Unset" };
   const [user, setUser] = useState(null);
+  const [show, setShow] = useState(false);
   const { displayName, email, phoneNumber } = user || inits;
   useEffect(() => {
     const currentUser = firebase.getUser();
     setUser(currentUser);
   }, [user]);
+
+  const handleClose = () => {
+    setShow(false);
+  };
+
+  console.log(show);
   return (
     <div className="user__details">
       <div className="user__details-picture">
@@ -28,10 +35,7 @@ export default function UserDetails() {
           url={user?.photoURL}
         />
       </div>
-      <div
-        className="user__details-details"
-        onClick={() => controller.updateProfile()}
-      >
+      <div className="user__details-details" onClick={() => setShow(true)}>
         <p className="user__details-detail">
           <Person className="icon" />
           <span className="detail">{displayName}</span>
@@ -48,8 +52,14 @@ export default function UserDetails() {
           <LocationCity className="icon" />
           <span className="detail">Address</span>
         </p>
-
-        <div className="user__details-update">Update</div>
+        {show ? (
+          <div className="user__details-update">
+            <button onClick={handleClose}>Close</button>
+            Update
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
