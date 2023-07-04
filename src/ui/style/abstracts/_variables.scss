@@ -51,4 +51,76 @@ $color-white--5: #ccc;
 $color-grey-dark--1: #333;
 $color-grey-dark--2: #777;
 $color-grey-dark--3: #999;
+
 /*=====  End of COLORS ======*/
+
+/*=============================================
+=            TYPOGRAPHY                       =
+=============================================*/
+
+/**
+ *
+ * Font families
+ * 1-For headings
+ * 2-For body text
+ */
+
+$raleway: "Raleway", sans-serif;
+$poppins: "Poppins", sans-serif;
+
+/* Font sizes */
+$fs-xs: 1.2rem; // 12px
+$fs-sm: 1.4rem; // 14px
+$fs-base: 1.6rem; // 16px
+$fs-lg: 1.8rem; // 18px
+$fs-xl: 2.4rem; // 24px
+
+/* Heading font sizes */
+$h-1: 2.2rem; // 22px
+$h-2: 2.2rem; // 22px
+$h-3: 1.6rem; // 16px
+$h-4: 1.8rem; // 18px
+$h-5: 1.2rem; // 12px
+$h-6: 1.2rem; // 12px
+
+/* Font weights */
+$fw-light: 100;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 800;
+$fw-black: 900;
+
+/*=====  End of TYPOGRAPHY  ======*/
+
+/*=============================================
+=               BREAKPOINTS                   =
+=============================================*/
+
+$breakpoints: (
+  xs: 30rem,
+  md: 48rem,
+  lg: 64rem,
+  xl: 80rem,
+);
+
+/*=====  End of BREAKPOINTS  ======*/
+
+/*=============================================
+=                  SPACING                    =
+=============================================*/
+
+$spacing: (
+  xxxs: 0.25rem,
+  xxs: 0.5rem,
+  xs: 0.75rem,
+  sm: 1rem,
+  md: 1.5rem,
+  lg: 2rem,
+  xl: 3rem,
+  xxl: 4.5rem,
+  xxxl: 6rem,
+) !default;
+
+/*=====  End of SPACING   ======*/
