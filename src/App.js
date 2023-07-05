@@ -1,5 +1,6 @@
+import { BrowserRouter as Browser } from "react-router-dom";
 function App() {
-  return <div>Restart</div>;
+  return <div className="app">Restart</div>;
 }
 
 export default App;
