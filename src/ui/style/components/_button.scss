@@ -1,0 +1,28 @@
+.btn {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 0.1rem var(--color-shadow);
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-0.1rem);
+  }
+  &:active {
+    box-shadow: 0 0.05rem 0.1rem var(--color-shadow);
+    transform: translateY(0);
+  }
+
+  &--link {
+    background-color: var(--color-secondary);
+    color: var(--color-on-secondary);
+    &:hover {
+      background-color: var(--color-secondary--light);
+    }
+  }
+
+  &--lost {
+    border-radius: 2rem;
+  }
+}

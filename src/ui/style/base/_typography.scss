@@ -2,3 +2,18 @@ body {
   font-family: $heading-font;
   font-size: $fs-base;
 }
+
+.btn {
+  font-size: $fs-sm;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: $fw-bold;
+}
+
+.text {
+  &--lost {
+    text-align: center;
+    margin: 0 2rem;
+    font-size: $fs-xl;
+  }
+}
