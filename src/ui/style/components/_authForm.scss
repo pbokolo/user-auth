@@ -1,0 +1,9 @@
+.auth {
+  &__signup-cta {
+    margin: 2rem auto;
+
+    .text--cta-signup {
+      cursor: pointer;
+    }
+  }
+}

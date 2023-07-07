@@ -16,4 +16,28 @@ body {
     margin: 0 2rem;
     font-size: $fs-xl;
   }
+
+  &--cta-signup {
+    color: var(--color-primary--dark);
+    font-weight: 500;
+  }
+}
+
+.heading {
+  font-family: "Raleway", sans-serif;
+  &--2 {
+    font-size: $h-2;
+  }
+}
+
+.inputset {
+  &__label,
+  &__notif {
+    font-size: $fs-xs;
+    font-weight: 500;
+  }
+
+  &__input {
+    font-size: $fs-sm;
+  }
 }
