@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+
+import AuthDialog from "../components/AuthDialog";
 
 export default function Home() {
-  return <div className="page">Your home is here</div>;
+  const [user, setUser] = useState(null);
+
+  return <div className="page">{user ? "Welcome home" : <AuthDialog />}</div>;
 }
