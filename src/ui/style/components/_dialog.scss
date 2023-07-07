@@ -16,12 +16,13 @@
   &__dialog {
     border: none;
     margin: 0 auto;
-    height: 40rem;
+    height: min-content;
     width: 30rem;
     border-radius: 1rem;
     background-color: white;
     box-shadow: 0 0.1rem 0.1rem var(--color-shadow);
     overflow: hidden;
+    transition: all 0.2s;
 
     .heading {
       text-align: center;
@@ -30,7 +31,7 @@
     }
 
     .content {
-      margin: 0 1rem;
+      margin: 0 2rem;
       padding: 1rem 0;
     }
   }
