@@ -19,6 +19,7 @@ export default function FormTextInput({
         placeholder={label}
         value={value}
         onChange={changeHandler}
+        required
       />
       <span className="text__notif inputset__notif">Error</span>
     </fieldset>
