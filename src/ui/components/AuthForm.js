@@ -70,7 +70,10 @@ export default function AuthForm({ type, authTypeChange }) {
           {type === TYPE_SIGN_IN
             ? "Don't have an account?"
             : "Have an account?"}{" "}
-          <span className="text--cta-signup" onClick={authTypeChange}>
+          <span
+            className="text--cta-signup"
+            onClick={() => authTypeChange(setDataErrors)}
+          >
             {type === TYPE_SIGN_IN ? "Signup" : "Signin"}{" "}
           </span>
         </p>

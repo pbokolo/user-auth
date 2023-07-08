@@ -7,8 +7,8 @@ export default function AuthDialog({ show }) {
   const [authType, setAuthType] = useState(TYPE_SIGN_IN);
   const title = authType === TYPE_SIGN_IN ? "Sign in" : "Create new account";
 
-  const authTypeChangeHandler = () => {
-    authController.handleAuthTypeChange(authType, setAuthType);
+  const authTypeChangeHandler = (errorsSetter) => {
+    authController.handleAuthTypeChange(authType, setAuthType, errorsSetter);
   };
   return (
     <div className="dialog__overlay">

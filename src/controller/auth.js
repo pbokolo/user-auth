@@ -13,7 +13,7 @@ class Controller {
     this.errors = { email: "", password: "", secondPassword: "" };
   }
 
-  handleAuthTypeChange(authType, setAuthType) {
+  handleAuthTypeChange(authType, setAuthType, errorSetter) {
     let newAuthType = "";
     switch (authType) {
       case this.TYPE_SIGN_IN:
@@ -23,8 +23,8 @@ class Controller {
         newAuthType = this.TYPE_SIGN_IN;
         break;
     }
-
     setAuthType(newAuthType);
+    errorSetter(this.errors);
   }
 
   handleFormSubmit(e, data, setData, setErrors) {
