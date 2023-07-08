@@ -4,25 +4,33 @@ import { authController } from "../../controller/auth";
 
 export default function AuthForm({ type, authTypeChange }) {
   //Properties
-  const { TYPE_SIGN_IN, TYPE_SIGN_UP, initData } = authController;
+  const { TYPE_SIGN_IN, TYPE_SIGN_UP, initData, errors } = authController;
 
   // State
   const [data, setData] = useState(initData);
+  const [dataErrors, setDataErrors] = useState(errors);
 
   const changeHandler = (e) => {
     setData({ ...data, [e.target.id]: e.target.value });
   };
 
+  const submit = (e) => {
+    authController.handleFormSubmit(
+      e,
+      { ...data, type },
+      setData,
+      setDataErrors
+    );
+  };
+
   return (
-    <form
-      className="auth"
-      onSubmit={(e) => authController.handleFormSubmit(e, data, setData)}
-    >
+    <form className="auth" onSubmit={submit}>
       <FormTextInput
         id={"email"}
         label="Email"
         type="email"
         value={data.email}
+        error={dataErrors.email}
         changeHandler={changeHandler}
       />
       <FormTextInput
@@ -30,6 +38,7 @@ export default function AuthForm({ type, authTypeChange }) {
         label="Password"
         type="password"
         value={data.password}
+        error={dataErrors.password}
         changeHandler={changeHandler}
       />
 
@@ -39,6 +48,7 @@ export default function AuthForm({ type, authTypeChange }) {
           label="Retype password"
           type="password"
           value={data.secondPassword}
+          error={dataErrors.secondPassword}
           changeHandler={changeHandler}
         />
       ) : (

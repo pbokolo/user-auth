@@ -5,6 +5,7 @@ export default function FormTextInput({
   label,
   type,
   value,
+  error,
   changeHandler,
 }) {
   return (
@@ -21,7 +22,7 @@ export default function FormTextInput({
       <label className="text__label inputset__label" htmlFor={id}>
         {label}
       </label>
-      <span className="text__notif inputset__notif"></span>
+      <span className="text__notif inputset__notif">{error}</span>
     </fieldset>
   );
 }
