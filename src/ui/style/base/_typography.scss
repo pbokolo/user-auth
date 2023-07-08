@@ -21,6 +21,13 @@ body {
     color: var(--color-primary--dark);
     font-weight: 500;
   }
+
+  &__label,
+  &__notif {
+    font-family: "Poppins", sans-serif;
+    font-size: $fs-xs;
+    font-weight: 300;
+  }
 }
 
 .heading {
@@ -31,13 +38,8 @@ body {
 }
 
 .inputset {
-  &__label,
-  &__notif {
-    font-size: $fs-xs;
-    font-weight: 500;
-  }
-
   &__input {
+    font-family: "Poppins", sans-serif;
     font-size: $fs-sm;
   }
 }

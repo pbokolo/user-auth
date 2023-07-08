@@ -9,9 +9,6 @@ export default function FormTextInput({
 }) {
   return (
     <fieldset className="inputset">
-      <label className="text__label inputset__label" htmlFor={id}>
-        {label}
-      </label>
       <input
         className="inputset__input"
         id={id}
@@ -21,7 +18,10 @@ export default function FormTextInput({
         onChange={changeHandler}
         required
       />
-      <span className="text__notif inputset__notif">Error</span>
+      <label className="text__label inputset__label" htmlFor={id}>
+        {label}
+      </label>
+      <span className="text__notif inputset__notif"></span>
     </fieldset>
   );
 }
