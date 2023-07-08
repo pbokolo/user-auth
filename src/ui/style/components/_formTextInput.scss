@@ -2,13 +2,14 @@
   display: grid;
   border: none;
   grid-template-columns: 2rem repeat(10, 1fr);
-  grid-template-rows: 1.5rem 4rem 1.5rem;
+  grid-template-rows: min-content 4rem min-content;
   row-gap: 0.1rem;
 
   &__label {
     grid-column: 1 / -1;
     grid-row: 1 / 2;
-    align-self: center;
+    align-self: flex-end;
+
     transition: all 0.2s cubic-bezier(0.83, 0, 0.17, 1);
     opacity: 1;
     z-index: 999;
@@ -18,19 +19,27 @@
     grid-column: 1 / -1;
     grid-row: 2 / 3;
     padding: 0 1rem;
-
     border: none;
-    border: 0.15rem solid var(--color-on-primary);
+    border: 0.15rem solid var(--color-black--dark);
     border-radius: 0.5rem;
     transition: all 0.2s;
     z-index: 1000;
+    background-color: transparent;
 
     &:focus {
       outline: none;
-      border-radius: 0.25rem;
+      border-radius: 0.3rem;
       border-width: 0.2rem;
-      background-color: white;
+      background-color: var(--color-white);
       box-shadow: 0 0.1rem 0.1rem var(--color-shadow);
+
+      &:invalid {
+        border: 0.15rem solid var(--color-warning);
+      }
+    }
+
+    &--err {
+      border: 0.15rem solid var(--color-error);
     }
 
     &:placeholder-shown + .inputset__label {
@@ -42,7 +51,6 @@
   &__notif {
     grid-column: 1 / -1;
     grid-row: 3 / 4;
-    align-self: center;
     color: var(--color-error);
   }
 }

@@ -11,7 +11,7 @@ export default function FormTextInput({
   return (
     <fieldset className="inputset">
       <input
-        className="inputset__input"
+        className={`inputset__input ${error ? "inputset__input--err" : ""}`}
         id={id}
         type={type}
         placeholder={label}
@@ -22,7 +22,13 @@ export default function FormTextInput({
       <label className="text__label inputset__label" htmlFor={id}>
         {label}
       </label>
-      <span className="text__notif inputset__notif">{error}</span>
+      <span
+        className={`text__notif inputset__notif ${
+          error ? "inputset__notif--err" : ""
+        }`}
+      >
+        {error}
+      </span>
     </fieldset>
   );
 }

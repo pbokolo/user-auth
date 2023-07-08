@@ -19,8 +19,8 @@
     height: min-content;
     width: 30rem;
     border-radius: 1rem;
-    background-color: white;
-    box-shadow: 0 0.1rem 0.1rem var(--color-shadow);
+    background-color: var(--color-surface-background);
+    box-shadow: 0 0.25rem 0.25rem var(--color-shadow);
     overflow: hidden;
     transition: all 0.2s;
 

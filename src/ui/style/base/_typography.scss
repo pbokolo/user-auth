@@ -1,5 +1,5 @@
 body {
-  font-family: $heading-font;
+  font-family: $body-font;
   font-size: $fs-base;
 }
 
@@ -8,6 +8,7 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   font-weight: $fw-bold;
+  letter-spacing: 0.15rem;
 }
 
 .text {
@@ -24,7 +25,6 @@ body {
 
   &__label,
   &__notif {
-    font-family: "Poppins", sans-serif;
     font-size: $fs-xs;
     font-weight: 300;
   }
@@ -39,7 +39,7 @@ body {
 
 .inputset {
   &__input {
-    font-family: "Poppins", sans-serif;
     font-size: $fs-sm;
+    font-family: inherit;
   }
 }

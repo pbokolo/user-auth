@@ -33,6 +33,7 @@ export default function AuthForm({ type, authTypeChange }) {
         error={dataErrors.email}
         changeHandler={changeHandler}
       />
+      <div className="auth__divider"></div>
       <FormTextInput
         id={"password"}
         label="Password"
@@ -43,14 +44,17 @@ export default function AuthForm({ type, authTypeChange }) {
       />
 
       {type === TYPE_SIGN_UP ? (
-        <FormTextInput
-          id={"secondPassword"}
-          label="Retype password"
-          type="password"
-          value={data.secondPassword}
-          error={dataErrors.secondPassword}
-          changeHandler={changeHandler}
-        />
+        <>
+          <div className="auth__divider"></div>
+          <FormTextInput
+            id={"secondPassword"}
+            label="Retype password"
+            type="password"
+            value={data.secondPassword}
+            error={dataErrors.secondPassword}
+            changeHandler={changeHandler}
+          />
+        </>
       ) : (
         ""
       )}

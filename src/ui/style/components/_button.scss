@@ -3,7 +3,7 @@
   padding: 1rem 1.5rem;
   border-radius: 0.5rem;
   border: none;
-  box-shadow: 0 0.1rem 0.1rem var(--color-shadow);
+  box-shadow: 0 0.15rem 0.15rem var(--color-shadow);
   transition: all 0.2s;
   cursor: pointer;
 
@@ -11,7 +11,7 @@
     transform: translateY(-0.1rem);
   }
   &:active {
-    box-shadow: 0 0.05rem 0.1rem var(--color-shadow);
+    box-shadow: 0 0.05rem 0.05rem var(--color-shadow);
     transform: translateY(0);
   }
 
