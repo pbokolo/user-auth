@@ -5,11 +5,13 @@ export default function FormTextInput({
   label,
   type,
   value,
+  slidein = false,
+  special = false,
   error,
   changeHandler,
 }) {
   return (
-    <fieldset className="inputset">
+    <fieldset className={`inputset ${slidein ? "inputset--slide-in" : ""} `}>
       <input
         className={`inputset__input ${error ? "inputset__input--err" : ""}`}
         id={id}

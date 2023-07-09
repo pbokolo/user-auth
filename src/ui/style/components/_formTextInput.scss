@@ -5,6 +5,10 @@
   grid-template-rows: min-content 4rem min-content;
   row-gap: 0.1rem;
 
+  &--slide-in {
+    animation: slidein-top 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+  }
+
   &__label {
     grid-column: 1 / -1;
     grid-row: 1 / 2;

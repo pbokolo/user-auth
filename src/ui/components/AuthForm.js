@@ -50,6 +50,7 @@ export default function AuthForm({ type, authTypeChange }) {
             id={"secondPassword"}
             label="Retype password"
             type="password"
+            slidein={true}
             value={data.secondPassword}
             error={dataErrors.secondPassword}
             changeHandler={changeHandler}
