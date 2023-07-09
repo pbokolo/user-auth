@@ -19,7 +19,6 @@
         var(--color-secondary--dark)
       );
       color: var(--color-white);
-      padding: 1rem 2rem 0 2rem;
       clip-path: polygon(
         0% 0%,
         100% 0%,
@@ -29,7 +28,7 @@
         45% 50%,
         0 50%
       );
-
+      padding: 1rem 2rem 0 2rem;
       animation: bounce 3s ease-in-out infinite;
     }
     .uhuru {
