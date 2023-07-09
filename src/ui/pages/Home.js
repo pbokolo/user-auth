@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import AuthDialog from "../components/AuthDialog";
+import AuthCTA from "../components/AuthCTA";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -22,13 +23,7 @@ export default function Home() {
 
   return (
     <div className="page">
-      {user ? (
-        "Welcome home"
-      ) : (
-        <div className="btn btn--primary" onClick={handleOpenAuthDialog}>
-          sign in to continue
-        </div>
-      )}
+      {user ? "Welcome home" : <AuthCTA clickHandler={handleOpenAuthDialog} />}
       {showAuthDialog ? (
         <AuthDialog
           show={showAuthDialog}

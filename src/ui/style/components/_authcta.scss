@@ -1,0 +1,39 @@
+.auth-cta {
+  &__block {
+    width: 30rem;
+    height: min-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    .heading {
+      height: 10rem;
+      text-align: center;
+      background-image: linear-gradient(
+        to right bottom,
+        var(--color-secondary--light),
+        var(--color-secondary),
+        var(--color-secondary--dark)
+      );
+      color: var(--color-white);
+      padding: 1rem 2rem 0 2rem;
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 60%,
+        55% 60%,
+        50% 100%,
+        45% 50%,
+        0 50%
+      );
+
+      animation: bounce 3s ease-in-out infinite;
+    }
+    .uhuru {
+      height: 20rem;
+    }
+  }
+}

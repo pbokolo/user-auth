@@ -1,0 +1,30 @@
+@keyframes bounce {
+  70% {
+    transform: translateY(0%);
+    background-image: linear-gradient(
+      to right bottom,
+      var(--color-secondary--light),
+      var(--color-secondary),
+      var(--color-secondary--dark)
+    );
+  }
+  80% {
+    transform: translateY(20%);
+    background-image: linear-gradient(
+      to right bottom,
+      var(--color-secondary),
+      var(--color-secondary--light),
+      var(--color-secondary--dark)
+    );
+  }
+
+  100% {
+    transform: translateY(0%);
+    background-image: linear-gradient(
+      to right bottom,
+      var(--color-secondary--light),
+      var(--color-secondary),
+      var(--color-secondary--dark)
+    );
+  }
+}
