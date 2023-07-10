@@ -1,5 +1,9 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCo1gYRg9no4rTIRuAcuttyU6yPe4gL3ms",
@@ -26,8 +30,12 @@ class Firebase {
     return this.#auth.currentUser;
   }
 
-  signupWithEmailAndPwd({ email, password }) {
+  async signupWithEmailAndPwd({ email, password }) {
     return createUserWithEmailAndPassword(this.#auth, email, password);
+  }
+
+  async siginWithEmailAndPwd({ email, password }) {
+    return signInWithEmailAndPassword(this.#auth, email, password);
   }
 }
 

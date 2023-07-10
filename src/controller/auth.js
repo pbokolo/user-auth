@@ -29,12 +29,16 @@ class Controller {
     errorSetter(this.errors);
   }
 
-  handleFormSubmit(e, data, setData, setErrors) {
+  async handleFormSubmit(e, data, setData, setErrors) {
     e.preventDefault();
+    // Check data
     if (!this.#checkData(data, setErrors)) return;
+    // Clears previous errors
     setErrors(this.errors);
+    // Reinits data
     setData(this.initData);
-    firebase.signupWithEmailAndPwd(data);
+    //Proceeds to authentication
+    this.#handleAuthentication(data);
   }
 
   #checkData(data, setErrors) {
@@ -80,6 +84,28 @@ class Controller {
       return;
     }
     return true;
+  }
+
+  async #handleAuthentication(data) {
+    switch (data.type) {
+      case this.TYPE_SIGN_IN:
+        try {
+          const response = await firebase.siginWithEmailAndPwd(data);
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+        break;
+
+      case this.TYPE_SIGN_UP:
+        try {
+          const response = await firebase.signupWithEmailAndPwd(data);
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+        break;
+    }
   }
 }
 
