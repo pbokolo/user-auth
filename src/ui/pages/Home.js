@@ -1,34 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import AuthDialog from "../components/AuthDialog";
 import AuthCTA from "../components/AuthCTA";
+import { firebase } from "../../firebase/firebase";
 
 export default function Home() {
   const [user, setUser] = useState(null);
-  const [showAuthDialog, setAuthDialog] = useState(!user);
+  const [showAuthDialog, setShowAuthDialog] = useState(false);
 
-  const handleCloseAuthDialog = (e) => {
-    if (
-      e.target.id !== "overlay" &&
-      e.target.id !== "close" &&
-      e.target.id !== "close__icon"
-    )
-      return;
-    setAuthDialog(false);
-  };
+  useEffect(() => {
+    //Effect : listens to authentication state
+    let listener = firebase.getAuth().onAuthStateChanged((user) => {
+      if (!user) {
+        setShowAuthDialog(true);
+        return;
+      }
+      setUser(user);
+    });
+
+    return () => {
+      listener();
+    };
+  });
 
   const handleOpenAuthDialog = () => {
-    setAuthDialog(true);
+    setShowAuthDialog(true);
   };
 
   return (
     <div className="page">
       {user ? "Welcome home" : <AuthCTA clickHandler={handleOpenAuthDialog} />}
       {showAuthDialog ? (
-        <AuthDialog
-          show={showAuthDialog}
-          closeHandler={handleCloseAuthDialog}
-        />
+        <AuthDialog show={showAuthDialog} showSetter={setShowAuthDialog} />
       ) : (
         ""
       )}

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCo1gYRg9no4rTIRuAcuttyU6yPe4gL3ms",
@@ -18,8 +18,16 @@ class Firebase {
     this.#auth = getAuth(this.#app);
   }
 
+  getAuth() {
+    return this.#auth;
+  }
+
   getCurrentUser() {
     return this.#auth.currentUser;
+  }
+
+  signupWithEmailAndPwd({ email, password }) {
+    return createUserWithEmailAndPassword(this.#auth, email, password);
   }
 }
 

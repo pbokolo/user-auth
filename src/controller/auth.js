@@ -1,3 +1,5 @@
+import { firebase } from "../firebase/firebase";
+
 class Controller {
   TYPE_SIGN_IN = "signin";
   TYPE_SIGN_UP = "signup";
@@ -32,7 +34,7 @@ class Controller {
     if (!this.#checkData(data, setErrors)) return;
     setErrors(this.errors);
     setData(this.initData);
-    console.log(data);
+    firebase.signupWithEmailAndPwd(data);
   }
 
   #checkData(data, setErrors) {
