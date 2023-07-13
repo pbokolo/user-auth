@@ -36,7 +36,11 @@ export default function Home() {
 
   return (
     <div className="page">
-      {user ? <UserCard /> : <AuthCTA clickHandler={handleOpenAuthDialog} />}
+      {user ? (
+        <UserCard user={user} />
+      ) : (
+        <AuthCTA clickHandler={handleOpenAuthDialog} />
+      )}
       {showAuthDialog ? (
         <AuthDialog
           show={showAuthDialog}

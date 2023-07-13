@@ -1,7 +1,7 @@
 import React from "react";
 import dog from "../../assets/dog.jpg";
 
-export default function UserComponent() {
+export default function UserComponent({ user }) {
   return (
     <div className="card card--user">
       <div className="card--user__photo">
@@ -9,9 +9,9 @@ export default function UserComponent() {
       </div>
       <div className="card--user__identity">
         <ul>
-          <li>Name</li>
-          <li>Email</li>
-          <li>Tel</li>
+          <li>{user.displayName || "To be defined"}</li>
+          <li>{user.email || "To be defined"}</li>
+          <li>{user.phoneNumber || "To be defined"}</li>
           <li>Address</li>
         </ul>
       </div>
