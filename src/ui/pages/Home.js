@@ -12,7 +12,6 @@ export default function Home() {
     //Effect : listens to authentication state
     let listener = firebase.getAuth().onAuthStateChanged((user) => {
       if (!user) {
-        setShowAuthDialog(true);
         return;
       }
       setUser(user);
@@ -27,11 +26,23 @@ export default function Home() {
     setShowAuthDialog(true);
   };
 
+  const handleCloseAuthDialog = (e) => {
+    const closers = ["overlay", "close", "close__icon"];
+    const { id } = e.target;
+
+    if (!id) return;
+    if (!closers.includes(id)) return;
+    setShowAuthDialog(false);
+  };
+  console.log(showAuthDialog);
   return (
     <div className="page">
       {user ? "Welcome home" : <AuthCTA clickHandler={handleOpenAuthDialog} />}
       {showAuthDialog ? (
-        <AuthDialog show={showAuthDialog} showSetter={setShowAuthDialog} />
+        <AuthDialog
+          show={showAuthDialog}
+          closeHandler={handleCloseAuthDialog}
+        />
       ) : (
         ""
       )}
