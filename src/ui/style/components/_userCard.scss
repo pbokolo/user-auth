@@ -1,0 +1,56 @@
+.card {
+  width: min-content;
+  height: min-content;
+  box-shadow: 0 0.2rem 0.2rem var(--color-shadow);
+  border-radius: 1rem;
+  background-color: var(--color-surface-background);
+
+  &--user {
+    width: 31rem;
+    height: 45rem;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    &__photo {
+      height: min-content;
+      display: flex;
+      justify-content: center;
+      border-bottom: 0.1rem solid var(--color-main-background);
+      overflow: inherit;
+
+      &-picture {
+        display: inline-block;
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
+      }
+    }
+
+    &__identity,
+    &__actions {
+      padding: 0 1.6rem;
+    }
+
+    &__identity {
+      ul {
+        list-style: none;
+        li {
+          padding: 1rem 0;
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            background-color: var(--color-main-background);
+          }
+          &:not(:last-child) {
+            border-bottom: 0.1rem solid var(--color-white-d--4);
+          }
+        }
+      }
+    }
+
+    &__actions {
+      background-color: rebeccapurple;
+    }
+  }
+}

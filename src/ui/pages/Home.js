@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import AuthDialog from "../components/AuthDialog";
 import AuthCTA from "../components/AuthCTA";
 import { firebase } from "../../firebase/firebase";
-import HomeContent from "../components/HomeContent";
+import UserCard from "../components/UserCard";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <div className="page">
-      {user ? <HomeContent /> : <AuthCTA clickHandler={handleOpenAuthDialog} />}
+      {user ? <UserCard /> : <AuthCTA clickHandler={handleOpenAuthDialog} />}
       {showAuthDialog ? (
         <AuthDialog
           show={showAuthDialog}
