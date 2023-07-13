@@ -1,0 +1,9 @@
+.home {
+  &__content {
+    width: 100%;
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+  }
+}

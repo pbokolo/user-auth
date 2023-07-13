@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import AuthDialog from "../components/AuthDialog";
 import AuthCTA from "../components/AuthCTA";
 import { firebase } from "../../firebase/firebase";
+import HomeContent from "../components/HomeContent";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -11,9 +12,7 @@ export default function Home() {
   useEffect(() => {
     //Effect : listens to authentication state
     let listener = firebase.getAuth().onAuthStateChanged((user) => {
-      if (!user) {
-        return;
-      }
+      if (!user) return;
       setUser(user);
     });
 
@@ -34,10 +33,10 @@ export default function Home() {
     if (!closers.includes(id)) return;
     setShowAuthDialog(false);
   };
-  console.log(showAuthDialog);
+
   return (
     <div className="page">
-      {user ? "Welcome home" : <AuthCTA clickHandler={handleOpenAuthDialog} />}
+      {user ? <HomeContent /> : <AuthCTA clickHandler={handleOpenAuthDialog} />}
       {showAuthDialog ? (
         <AuthDialog
           show={showAuthDialog}
