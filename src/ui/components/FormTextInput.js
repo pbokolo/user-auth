@@ -6,7 +6,6 @@ export default function FormTextInput({
   type,
   value,
   slidein = false,
-  special = false,
   error,
   changeHandler,
 }) {
