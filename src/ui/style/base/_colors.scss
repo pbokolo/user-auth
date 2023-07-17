@@ -16,21 +16,21 @@
   --color-error: #{$color-red--500};
   --color-error--dark: #{$color-red--700};
 
-  --color-black--light: #{$color-grey-dark--3};
-  --color-black: #{$color-grey-dark--2};
-  --color-black--dark: #{$color-grey-dark--1};
+  --color-black--light: #{$color-black--700};
+  --color-black: #{$color-black--800};
+  --color-black--dark: #{$color-black--900};
 
-  --color-white: #{$color-white--1};
-  --color-white-d--1: #{$color-white--2};
-  --color-white-d--2: #{$color-white--3};
-  --color-white-d--3: #{$color-white--4};
-  --color-white-d--4: #{$color-white--5};
+  --color-white: #{$color-white--50};
+  --color-white-d--1: #{$color-white--100};
+  --color-white-d--2: #{$color-white--200};
+  --color-white-d--3: #{$color-white--300};
+  --color-white-d--4: #{$color-white--400};
 
-  --color-on-primary: var(--color-black--dark);
+  --color-on-primary: var(--color-black);
   --color-on-secondary: var(--color-black--dark);
 
   --color-main-background: var(--color-white-d--3);
   --color-surface-background: var(--color-white-d--2);
-  --color-shadow: rgba(0, 0, 0, 0.4);
-  --dialog-overlay: rgba(204, 204, 204, 0.5);
+  --color-shadow: #{$color-black--500};
+  --dialog-overlay: #{$color-black--500};
 }
