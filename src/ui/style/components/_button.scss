@@ -60,10 +60,10 @@
 
   &--text {
     box-shadow: none;
-    background-color: var(--color-white-d--3);
+    background-color: transparent;
 
     &:hover {
-      background-color: var(--color-white-d--4);
+      background-color: var(--color-white-d--3);
     }
   }
 

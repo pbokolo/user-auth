@@ -1,5 +1,6 @@
 import React from "react";
 import dog from "../../assets/dog.jpg";
+import { authController } from "../../controller/auth";
 
 export default function UserComponent({ user }) {
   return (
@@ -16,8 +17,18 @@ export default function UserComponent({ user }) {
         </ul>
       </div>
       <div className="card--user__actions">
-        <button className="btn btn--text">signout</button>
-        <button className="btn btn--text btn--danger">delete</button>
+        <button
+          className="btn btn--text"
+          onClick={authController.handleSignout}
+        >
+          signout
+        </button>
+        <button
+          className="btn btn--text btn--danger"
+          onClick={authController.handleDeleteAccount}
+        >
+          delete
+        </button>
       </div>
     </div>
   );

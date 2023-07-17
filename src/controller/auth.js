@@ -90,8 +90,7 @@ class Controller {
     switch (data.type) {
       case this.TYPE_SIGN_IN:
         try {
-          const response = await firebase.siginWithEmailAndPwd(data);
-          console.log(response);
+          await firebase.siginWithEmailAndPwd(data);
         } catch (error) {
           console.log(error);
         }
@@ -99,13 +98,22 @@ class Controller {
 
       case this.TYPE_SIGN_UP:
         try {
-          const response = await firebase.signupWithEmailAndPwd(data);
-          console.log(response);
+          await firebase.signupWithEmailAndPwd(data);
         } catch (error) {
           console.log(error);
         }
         break;
     }
+  }
+
+  async handleSignout() {
+    const res = await firebase.signOutUser();
+    console.log(res);
+  }
+
+  async handleDeleteAccount() {
+    const res = await firebase.deleteUserAccount();
+    console.log(res);
   }
 }
 

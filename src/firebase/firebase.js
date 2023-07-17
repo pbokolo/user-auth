@@ -3,6 +3,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  deleteUser,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -36,6 +38,14 @@ class Firebase {
 
   async siginWithEmailAndPwd({ email, password }) {
     return signInWithEmailAndPassword(this.#auth, email, password);
+  }
+
+  async signOutUser() {
+    return signOut(this.#auth);
+  }
+
+  async deleteUserAccount() {
+    return deleteUser(this.#auth.currentUser);
   }
 }
 
