@@ -7,7 +7,7 @@
 
   &--user {
     width: 31rem;
-    height: 45rem;
+    height: min-content;
     border-radius: 1rem;
     overflow: hidden;
 
@@ -50,8 +50,9 @@
     }
 
     &__actions {
+      background-color: var(--color-main-background);
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
     }
   }
 }
