@@ -50,7 +50,8 @@
     }
 
     &__actions {
-      background-color: rebeccapurple;
+      display: flex;
+      justify-content: space-around;
     }
   }
 }

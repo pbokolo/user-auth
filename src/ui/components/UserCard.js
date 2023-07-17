@@ -15,7 +15,10 @@ export default function UserComponent({ user }) {
           <li>Address</li>
         </ul>
       </div>
-      <div className="card--user__actions">Actions</div>
+      <div className="card--user__actions">
+        <button className="btn btn--text">signout</button>
+        <button className="btn btn--text btn--danger">delete</button>
+      </div>
     </div>
   );
 }

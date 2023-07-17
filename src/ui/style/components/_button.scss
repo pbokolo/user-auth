@@ -57,4 +57,17 @@
       box-shadow: none;
     }
   }
+
+  &--text {
+    box-shadow: none;
+    background-color: var(--color-white-d--3);
+
+    &:hover {
+      background-color: var(--color-white-d--4);
+    }
+  }
+
+  &--danger {
+    color: var(--color-error);
+  }
 }
