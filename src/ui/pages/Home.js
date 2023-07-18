@@ -12,7 +12,6 @@ export default function Home() {
   useEffect(() => {
     //Effect : listens to authentication state
     let listener = firebase.getAuth().onAuthStateChanged((user) => {
-      if (!user) return;
       setUser(user);
     });
 
