@@ -33,12 +33,11 @@ class Controller {
     e.preventDefault();
     // Check data
     if (!this.#checkData(data, setErrors)) return;
+
+    //Proceeds to authentication
+    this.#handleAuthentication(data, setData);
     // Clears previous errors
     setErrors(this.errors);
-    // Reinits data
-    setData(this.initData);
-    //Proceeds to authentication
-    this.#handleAuthentication(data);
   }
 
   #checkData(data, setErrors) {
@@ -91,6 +90,8 @@ class Controller {
       case this.TYPE_SIGN_IN:
         try {
           await firebase.siginWithEmailAndPwd(data);
+          // Reinits data
+          setData(this.initData);
         } catch (error) {
           console.log(error);
         }
@@ -99,6 +100,8 @@ class Controller {
       case this.TYPE_SIGN_UP:
         try {
           await firebase.signupWithEmailAndPwd(data);
+          // Reinits data
+          setData(this.initData);
         } catch (error) {
           console.log(error);
         }
