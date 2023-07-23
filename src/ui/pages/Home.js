@@ -28,7 +28,7 @@ export default function Home() {
   };
 
   const handleCloseAuthDialog = (e) => {
-    const closers = ["overlay", "close", "close__icon"];
+    const closers = ["close", "close__icon"];
     const { id } = e.target;
 
     if (!id) return;
