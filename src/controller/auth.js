@@ -1,4 +1,5 @@
 import { firebase } from "../firebase/firebase";
+import { authErrors } from "../helpers/errors";
 
 class Controller {
   TYPE_SIGN_IN = "signin";
@@ -35,7 +36,7 @@ class Controller {
     if (!this.#checkData(data, setErrors)) return;
 
     //Proceeds to authentication
-    this.#handleAuthentication(data, setData);
+    this.#handleAuthentication(data, setData, setErrors);
     // Clears previous errors
     setErrors(this.errors);
   }
@@ -85,27 +86,35 @@ class Controller {
     return true;
   }
 
-  async #handleAuthentication(data) {
-    switch (data.type) {
-      case this.TYPE_SIGN_IN:
-        try {
+  async #handleAuthentication(data, setData, setErrors) {
+    try {
+      switch (data.type) {
+        case this.TYPE_SIGN_IN:
           await firebase.siginWithEmailAndPwd(data);
           // Reinits data
           setData(this.initData);
-        } catch (error) {
-          console.log(error);
-        }
-        break;
-
-      case this.TYPE_SIGN_UP:
-        try {
+          break;
+        case this.TYPE_SIGN_UP:
           await firebase.signupWithEmailAndPwd(data);
           // Reinits data
           setData(this.initData);
-        } catch (error) {
-          console.log(error);
-        }
-        break;
+          break;
+      }
+    } catch (err) {
+      const error = { err };
+      const { code } = error.err;
+
+      switch (code) {
+        case "auth/user-not-found":
+          setErrors({ ...this.errors, email: authErrors[code] });
+          break;
+
+        case "auth/wrong-password":
+          setErrors({ ...this.errors, password: authErrors[code] });
+          break;
+        case "auth/email-already-in-use":
+          setErrors({ ...this.errors, email: authErrors[code] });
+      }
     }
   }
 
