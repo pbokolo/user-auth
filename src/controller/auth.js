@@ -30,13 +30,13 @@ class Controller {
     errorSetter(this.errors);
   }
 
-  async handleFormSubmit(e, data, setData, setErrors) {
+  async handleFormSubmit(e, data, setData, setErrors, setEditable) {
     e.preventDefault();
     // Check data
     if (!this.#checkData(data, setErrors)) return;
-
+    setEditable(false);
     //Proceeds to authentication
-    this.#handleAuthentication(data, setData, setErrors);
+    this.#handleAuthentication(data, setData, setErrors, setEditable);
     // Clears previous errors
     setErrors(this.errors);
   }
@@ -86,7 +86,7 @@ class Controller {
     return true;
   }
 
-  async #handleAuthentication(data, setData, setErrors) {
+  async #handleAuthentication(data, setData, setErrors, setEditable) {
     try {
       switch (data.type) {
         case this.TYPE_SIGN_IN:
@@ -101,6 +101,7 @@ class Controller {
           break;
       }
     } catch (err) {
+      setEditable(true);
       const error = { err };
       const { code } = error.err;
 

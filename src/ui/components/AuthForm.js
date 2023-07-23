@@ -9,8 +9,10 @@ export default function AuthForm({ type, authTypeChange }) {
   // State
   const [data, setData] = useState(initData);
   const [dataErrors, setDataErrors] = useState(errors);
+  const [editable, setEditable] = useState(true);
 
   const changeHandler = (e) => {
+    if (!editable) return;
     setData({ ...data, [e.target.id]: e.target.value });
   };
 
@@ -19,7 +21,8 @@ export default function AuthForm({ type, authTypeChange }) {
       e,
       { ...data, type },
       setData,
-      setDataErrors
+      setDataErrors,
+      setEditable
     );
   };
 
