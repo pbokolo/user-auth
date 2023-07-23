@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FormTextInput from "./FormTextInput";
+import Spinner from "./Spinner";
 import { authController } from "../../controller/auth";
 
 export default function AuthForm({ type, authTypeChange }) {
@@ -27,61 +28,63 @@ export default function AuthForm({ type, authTypeChange }) {
   };
 
   return (
-    <form className="auth" onSubmit={submit}>
-      <FormTextInput
-        id={"email"}
-        label="Email"
-        type="email"
-        value={data.email}
-        error={dataErrors.email}
-        changeHandler={changeHandler}
-      />
-      <div className="auth__divider"></div>
-      <FormTextInput
-        id={"password"}
-        label="Password"
-        type="password"
-        value={data.password}
-        error={dataErrors.password}
-        changeHandler={changeHandler}
-      />
+    <>
+      {!editable && <Spinner />}
+      <form className="auth" onSubmit={submit}>
+        <FormTextInput
+          id={"email"}
+          label="Email"
+          type="email"
+          value={data.email}
+          error={dataErrors.email}
+          changeHandler={changeHandler}
+        />
+        <div className="auth__divider"></div>
+        <FormTextInput
+          id={"password"}
+          label="Password"
+          type="password"
+          value={data.password}
+          error={dataErrors.password}
+          changeHandler={changeHandler}
+        />
 
-      {type === TYPE_SIGN_UP ? (
-        <>
-          <div className="auth__divider"></div>
-          <FormTextInput
-            id={"secondPassword"}
-            label="Retype password"
-            type="password"
-            slidein={true}
-            value={data.secondPassword}
-            error={dataErrors.secondPassword}
-            changeHandler={changeHandler}
-          />
-        </>
-      ) : (
-        ""
-      )}
+        {type === TYPE_SIGN_UP ? (
+          <>
+            <div className="auth__divider"></div>
+            <FormTextInput
+              id={"secondPassword"}
+              label="Retype password"
+              type="password"
+              slidein={true}
+              value={data.secondPassword}
+              error={dataErrors.secondPassword}
+              changeHandler={changeHandler}
+            />
+          </>
+        ) : (
+          ""
+        )}
 
-      <input
-        type="submit"
-        value={type === TYPE_SIGN_IN ? "Sign in" : "create account"}
-        className="btn btn--primary btn--submit"
-      />
-
-      <div className="auth__signup-cta">
-        <p className="text">
-          {type === TYPE_SIGN_IN
-            ? "Don't have an account?"
-            : "Have an account?"}{" "}
-          <span
-            className="text--cta-signup"
-            onClick={() => authTypeChange(setDataErrors)}
-          >
-            {type === TYPE_SIGN_IN ? "Signup" : "Signin"}{" "}
-          </span>
-        </p>
-      </div>
-    </form>
+        <input
+          type="submit"
+          value={type === TYPE_SIGN_IN ? "Sign in" : "create account"}
+          className="btn btn--primary btn--submit"
+        />
+        <div className="auth__signup-cta">
+          <p className="text">
+            {type === TYPE_SIGN_IN
+              ? "Don't have an account?"
+              : "Have an account?"}{" "}
+            <span
+              className="text--cta-signup"
+              onClick={() => authTypeChange(setDataErrors)}
+            >
+              {type === TYPE_SIGN_IN ? "Signup" : "Signin"}{" "}
+            </span>
+          </p>
+        </div>
+      </form>
+    </>
   );
 }

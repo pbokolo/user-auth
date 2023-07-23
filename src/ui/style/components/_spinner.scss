@@ -1,0 +1,14 @@
+.spinner {
+  display: inline-block;
+  height: min-content;
+  position: fixed;
+  left: 50%;
+  z-index: 1200;
+  background-color: var(--color-surface-background);
+  border-radius: 50%;
+  transform: translate(-50%, -2.5rem);
+  &__image {
+    width: 3rem;
+    height: 3rem;
+  }
+}
