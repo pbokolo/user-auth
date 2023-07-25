@@ -14,15 +14,21 @@
     &__photo {
       height: min-content;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
       border-bottom: 0.1rem solid var(--color-main-background);
       overflow: inherit;
+      cursor: pointer;
 
       &-picture {
         display: inline-block;
         width: 20rem;
         height: 20rem;
         border-radius: 50%;
+      }
+      &-btn {
+        display: block;
       }
     }
 
