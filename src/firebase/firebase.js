@@ -7,6 +7,8 @@ import {
   deleteUser,
 } from "firebase/auth";
 
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCo1gYRg9no4rTIRuAcuttyU6yPe4gL3ms",
   authDomain: "auth-fb-f5a08.firebaseapp.com",
@@ -19,9 +21,11 @@ const firebaseConfig = {
 class Firebase {
   #app;
   #auth;
+  #storage;
   constructor() {
     this.#app = initializeApp(firebaseConfig);
     this.#auth = getAuth(this.#app);
+    this.#storage = getStorage(this.#app);
   }
 
   getAuth() {
@@ -46,6 +50,11 @@ class Firebase {
 
   async deleteUserAccount() {
     return deleteUser(this.#auth.currentUser);
+  }
+
+  async uploadProfilePicture(file) {
+    const imgRef = ref(this.#storage, `pictures/${this.getCurrentUser().uid}`);
+    return uploadBytes(imgRef, file);
   }
 }
 
