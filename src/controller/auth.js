@@ -41,6 +41,11 @@ class Controller {
     setErrors(this.errors);
   }
 
+  async handleProfilePictureSubmit(file, setProfilePictureUrl) {
+    const res = await firebase.uploadProfilePicture(file);
+    console.log(res);
+  }
+
   #checkData(data, setErrors) {
     if (!data.email) {
       setErrors({ ...this.errors, email: "Fill the email field please" });

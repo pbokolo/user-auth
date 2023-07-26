@@ -3,16 +3,19 @@ import dog from "../../assets/dog.jpg";
 import { authController } from "../../controller/auth";
 
 export default function UserComponent({ user }) {
-  const [uploadedPicture, setUploadedPicture] = useState(null);
+  const [profilePictureUrl, setProfilePictureUrl] = useState(null);
   const handlePictureUpload = (e) => {
-    console.log(e.target.files[0]);
-    setUploadedPicture(URL.createObjectURL(e.target.files[0]));
+    setProfilePictureUrl(URL.createObjectURL(e.target.files[0]));
+    authController.handleProfilePictureSubmit(
+      e.target.files[0],
+      setProfilePictureUrl
+    );
   };
   return (
     <div className="card card--user">
       <div className="card--user__photo">
         <img
-          src={uploadedPicture || dog}
+          src={profilePictureUrl || dog}
           alt="user"
           className="card--user__photo-picture"
         />
