@@ -42,8 +42,27 @@ class Controller {
   }
 
   async handleProfilePictureSubmit(file, setProfilePictureUrl) {
-    const res = await firebase.uploadProfilePicture(file);
-    console.log(res);
+    /* const res = await firebase.uploadProfilePicture(file);
+    const url = await firebase.getDownloadableURL(res.ref);
+    console.log(url); */
+    const uploadTask = firebase.uploadProfilePicture(file);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        console.log(progress);
+      },
+      (error) => {
+        alert(error);
+      },
+      () => {
+        firebase.getDownloadableURL(uploadTask).then((downloadURL) => {
+          setProfilePictureUrl(downloadURL);
+        });
+      }
+    );
   }
 
   #checkData(data, setErrors) {

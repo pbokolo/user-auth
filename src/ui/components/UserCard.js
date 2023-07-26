@@ -5,11 +5,9 @@ import { authController } from "../../controller/auth";
 export default function UserComponent({ user }) {
   const [profilePictureUrl, setProfilePictureUrl] = useState(null);
   const handlePictureUpload = (e) => {
-    setProfilePictureUrl(URL.createObjectURL(e.target.files[0]));
-    authController.handleProfilePictureSubmit(
-      e.target.files[0],
-      setProfilePictureUrl
-    );
+    const file = e.target.files[0];
+    // setProfilePictureUrl(URL.createObjectURL(file));
+    authController.handleProfilePictureSubmit(file, setProfilePictureUrl);
   };
   return (
     <div className="card card--user">

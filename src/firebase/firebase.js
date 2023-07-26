@@ -7,7 +7,13 @@ import {
   deleteUser,
 } from "firebase/auth";
 
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCo1gYRg9no4rTIRuAcuttyU6yPe4gL3ms",
@@ -52,9 +58,17 @@ class Firebase {
     return deleteUser(this.#auth.currentUser);
   }
 
-  async uploadProfilePicture(file) {
-    const imgRef = ref(this.#storage, `pictures/${this.getCurrentUser().uid}`);
-    return uploadBytes(imgRef, file);
+  /* async */ uploadProfilePicture(file) {
+    const storageRef = ref(
+      this.#storage,
+      `pictures/${this.getCurrentUser().uid}`
+    );
+    return uploadBytesResumable(storageRef, file);
+    // return uploadBytes(imgRef, file);
+  }
+
+  async getDownloadableURL(uploadTask) {
+    return getDownloadURL(uploadTask.snapshot.ref);
   }
 }
 
