@@ -42,9 +42,6 @@ class Controller {
   }
 
   async handleProfilePictureSubmit(file, setProfilePictureUrl) {
-    /* const res = await firebase.uploadProfilePicture(file);
-    const url = await firebase.getDownloadableURL(res.ref);
-    console.log(url); */
     const uploadTask = firebase.uploadProfilePicture(file);
     uploadTask.on(
       "state_changed",
@@ -60,6 +57,7 @@ class Controller {
       () => {
         firebase.getDownloadableURL(uploadTask).then((downloadURL) => {
           setProfilePictureUrl(downloadURL);
+          firebase.updateUserProfilePictureUrl(downloadURL);
         });
       }
     );

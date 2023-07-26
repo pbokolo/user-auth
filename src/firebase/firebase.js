@@ -5,12 +5,12 @@ import {
   signInWithEmailAndPassword,
   signOut,
   deleteUser,
+  updateProfile,
 } from "firebase/auth";
 
 import {
   getStorage,
   ref,
-  uploadBytes,
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
@@ -58,17 +58,20 @@ class Firebase {
     return deleteUser(this.#auth.currentUser);
   }
 
-  /* async */ uploadProfilePicture(file) {
+  uploadProfilePicture(file) {
     const storageRef = ref(
       this.#storage,
       `pictures/${this.getCurrentUser().uid}`
     );
     return uploadBytesResumable(storageRef, file);
-    // return uploadBytes(imgRef, file);
   }
 
   async getDownloadableURL(uploadTask) {
     return getDownloadURL(uploadTask.snapshot.ref);
+  }
+
+  async updateUserProfilePictureUrl(url) {
+    return updateProfile(this.#auth.currentUser, { photoURL: url });
   }
 }
 
