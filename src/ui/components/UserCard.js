@@ -24,9 +24,10 @@ export default function UserComponent({ user }) {
             className="icon"
             sx={{
               fontSize: 30,
-              zIndex: 9999,
               color: "white",
-              backgroundColor: "blue",
+              borderRadius: "50%",
+              backgroundColor: "#3333",
+              cursor: "pointer",
             }}
           />
           <input
