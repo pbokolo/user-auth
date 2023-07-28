@@ -25,8 +25,9 @@ export default function UserComponent({ user }) {
             sx={{
               fontSize: 30,
               color: "white",
+              padding: ".5rem",
               borderRadius: "50%",
-              backgroundColor: "#3333",
+              backgroundColor: "#7b7b7bc1",
               cursor: "pointer",
             }}
           />
