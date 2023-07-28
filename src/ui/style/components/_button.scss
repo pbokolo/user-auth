@@ -70,4 +70,26 @@
   &--danger {
     color: var(--color-error);
   }
+
+  &--upload {
+    padding: 0;
+    color: transparent;
+    box-shadow: none;
+    background-color: transparent;
+    &::file-selector-button {
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      width: 3.6rem;
+      height: 3.6rem;
+      color: transparent;
+      border-radius: 50%;
+      background-color: var(--color-transparent);
+
+      &:active {
+        box-shadow: none;
+        transform: none;
+      }
+    }
+  }
 }

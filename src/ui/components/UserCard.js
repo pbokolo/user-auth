@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PhotoOutlinedIcon from "@mui/icons-material/PhotoOutlined";
 import dog from "../../assets/dog.jpg";
 import { authController } from "../../controller/auth";
 
@@ -17,11 +18,23 @@ export default function UserComponent({ user }) {
           alt="user"
           className="card--user__photo-picture"
         />
-        <input
-          className="card--user__photo-btn"
-          type="file"
-          onChange={handlePictureUpload}
-        />
+
+        <div className="card--user__photo-btn">
+          <PhotoOutlinedIcon
+            className="icon"
+            sx={{
+              fontSize: 30,
+              zIndex: 9999,
+              color: "white",
+              backgroundColor: "blue",
+            }}
+          />
+          <input
+            className="btn btn--upload "
+            type="file"
+            onChange={handlePictureUpload}
+          />
+        </div>
       </div>
       <div className="card--user__identity">
         <ul>
