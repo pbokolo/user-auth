@@ -7,7 +7,6 @@ export default function UserComponent({ user }) {
   const [profilePictureUrl, setProfilePictureUrl] = useState(user.photoURL);
   const handlePictureUpload = (e) => {
     const file = e.target.files[0];
-    setProfilePictureUrl(URL.createObjectURL(file));
     authController.handleProfilePictureSubmit(file, setProfilePictureUrl);
   };
 

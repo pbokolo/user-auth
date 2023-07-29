@@ -42,6 +42,7 @@ class Controller {
   }
 
   async handleProfilePictureSubmit(file, setProfilePictureUrl) {
+    setProfilePictureUrl(URL.createObjectURL(file));
     const uploadTask = firebase.uploadProfilePicture(file);
     uploadTask.on(
       "state_changed",
