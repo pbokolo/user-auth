@@ -29,8 +29,20 @@ export default function UserComponent({ user }) {
     }
   };
 
-  const updateSubmitHandler = (e) => {
+  const updateSubmitHandler = (e, property) => {
     e.preventDefault();
+    switch (property) {
+      case "username":
+        setUsernameEdit(false);
+        break;
+      case "email":
+        setEmailEdit(false);
+        break;
+      case "phone":
+        setPhoneEdit(false);
+        break;
+    }
+    if (property === "username") setUsernameEdit(false);
   };
 
   return (
@@ -63,17 +75,20 @@ export default function UserComponent({ user }) {
       </div>
       <div className="card--user__identity" onClick={handleClickIdentity}>
         {usrnameEdit ? (
-          <UpdateForm submitHandler={updateSubmitHandler} />
+          <UpdateForm
+            property={"username"}
+            submitHandler={updateSubmitHandler}
+          />
         ) : (
           <p id="username">{user.displayName || "To be defined"}</p>
         )}
         {emailEdit ? (
-          <UpdateForm submitHandler={updateSubmitHandler} />
+          <UpdateForm property={"email"} submitHandler={updateSubmitHandler} />
         ) : (
           <p id="email">{user.email || "To be defined"}</p>
         )}
         {phoneEdit ? (
-          <UpdateForm submitHandler={updateSubmitHandler} />
+          <UpdateForm property={"phone"} submitHandler={updateSubmitHandler} />
         ) : (
           <p id="phone">{user.phoneNumber || "To be defined"}</p>
         )}
