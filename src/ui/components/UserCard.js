@@ -77,18 +77,30 @@ export default function UserComponent({ user }) {
         {usrnameEdit ? (
           <UpdateForm
             property={"username"}
+            propType={"text"}
+            reiniter={setUsernameEdit}
             submitHandler={updateSubmitHandler}
           />
         ) : (
           <p id="username">{user.displayName || "To be defined"}</p>
         )}
         {emailEdit ? (
-          <UpdateForm property={"email"} submitHandler={updateSubmitHandler} />
+          <UpdateForm
+            property={"email"}
+            propType={"email"}
+            reiniter={setEmailEdit}
+            submitHandler={updateSubmitHandler}
+          />
         ) : (
           <p id="email">{user.email || "To be defined"}</p>
         )}
         {phoneEdit ? (
-          <UpdateForm property={"phone"} submitHandler={updateSubmitHandler} />
+          <UpdateForm
+            property={"phone"}
+            propType={"tel"}
+            reiniter={setPhoneEdit}
+            submitHandler={updateSubmitHandler}
+          />
         ) : (
           <p id="phone">{user.phoneNumber || "To be defined"}</p>
         )}
