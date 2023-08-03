@@ -8,7 +8,7 @@ export default function UserComponent({ user }) {
   const [username, setUsername] = useState(user.displayName);
   const [profilePictureUrl, setProfilePictureUrl] = useState(user.photoURL);
   const [usrnameEdit, setUsernameEdit] = useState(false);
-  const [emailEdit, setEmailEdit] = useState(false);
+
   const [phoneEdit, setPhoneEdit] = useState(false);
 
   const handlePictureUpload = (e) => {
@@ -21,9 +21,6 @@ export default function UserComponent({ user }) {
       case "username":
         setUsernameEdit(true);
         break;
-      case "email":
-        setEmailEdit(true);
-        break;
       case "phone":
         setPhoneEdit(true);
         break;
@@ -35,6 +32,7 @@ export default function UserComponent({ user }) {
     switch (property) {
       case "username":
         setUsernameEdit(false);
+        authController.handleUsernameUpdate(value, user, setUsername);
         break;
       case "email":
         setEmailEdit(false);
@@ -43,7 +41,6 @@ export default function UserComponent({ user }) {
         setPhoneEdit(false);
         break;
     }
-    authController.handleUsernameUpdate(value, user, setUsername);
   };
 
   return (
@@ -85,16 +82,8 @@ export default function UserComponent({ user }) {
         ) : (
           <p id="username">{username || "To be defined"}</p>
         )}
-        {emailEdit ? (
-          <UpdateForm
-            property={"email"}
-            propType={"email"}
-            reiniter={setEmailEdit}
-            submitHandler={updateSubmitHandler}
-          />
-        ) : (
-          <p id="email">{user.email || "To be defined"}</p>
-        )}
+        <p id="email">{user.email || "To be defined"}</p>
+
         {phoneEdit ? (
           <UpdateForm
             property={"phone"}
