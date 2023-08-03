@@ -77,6 +77,10 @@ class Firebase {
   async updateUsername(username) {
     return updateProfile(this.#auth.currentUser, { displayName: username });
   }
+
+  async updatePhoneNumber(number) {
+    return updateProfile(this.#auth.currentUser, { phoneNumber: number });
+  }
 }
 
 const firebase = new Firebase();

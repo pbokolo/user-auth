@@ -73,6 +73,16 @@ class Controller {
     }
   }
 
+  async handlePhoneNumberUpdate() {
+    /* try {
+      const result = await firebase.updatePhoneNumber("0998444102");
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    } */
+    console.log("Should edit phone number");
+  }
+
   #checkData(data, setErrors) {
     if (!data.email) {
       setErrors({ ...this.errors, email: "Fill the email field please" });

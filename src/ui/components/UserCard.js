@@ -8,7 +8,6 @@ export default function UserComponent({ user }) {
   const [username, setUsername] = useState(user.displayName);
   const [profilePictureUrl, setProfilePictureUrl] = useState(user.photoURL);
   const [usrnameEdit, setUsernameEdit] = useState(false);
-
   const [phoneEdit, setPhoneEdit] = useState(false);
 
   const handlePictureUpload = (e) => {
@@ -34,15 +33,12 @@ export default function UserComponent({ user }) {
         setUsernameEdit(false);
         authController.handleUsernameUpdate(value, user, setUsername);
         break;
-      case "email":
-        setEmailEdit(false);
-        break;
       case "phone":
         setPhoneEdit(false);
+        authController.handlePhoneNumberUpdate();
         break;
     }
   };
-
   return (
     <div className="card card--user">
       <div className="card--user__photo">
