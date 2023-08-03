@@ -73,6 +73,10 @@ class Firebase {
   async updateUserProfilePictureUrl(url) {
     return updateProfile(this.#auth.currentUser, { photoURL: url });
   }
+
+  async updateUsername(username) {
+    return updateProfile(this.#auth.currentUser, { displayName: username });
+  }
 }
 
 const firebase = new Firebase();

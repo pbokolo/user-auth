@@ -64,6 +64,15 @@ class Controller {
     );
   }
 
+  async handleUsernameUpdate(username, user, setUsername) {
+    try {
+      await firebase.updateUsername(username);
+      setUsername(user.displayName);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   #checkData(data, setErrors) {
     if (!data.email) {
       setErrors({ ...this.errors, email: "Fill the email field please" });

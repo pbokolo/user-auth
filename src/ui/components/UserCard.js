@@ -5,6 +5,7 @@ import { authController } from "../../controller/auth";
 import UpdateForm from "./UpdateForm";
 
 export default function UserComponent({ user }) {
+  const [username, setUsername] = useState(user.displayName);
   const [profilePictureUrl, setProfilePictureUrl] = useState(user.photoURL);
   const [usrnameEdit, setUsernameEdit] = useState(false);
   const [emailEdit, setEmailEdit] = useState(false);
@@ -29,7 +30,7 @@ export default function UserComponent({ user }) {
     }
   };
 
-  const updateSubmitHandler = (e, property) => {
+  const updateSubmitHandler = (e, property, value) => {
     e.preventDefault();
     switch (property) {
       case "username":
@@ -42,7 +43,7 @@ export default function UserComponent({ user }) {
         setPhoneEdit(false);
         break;
     }
-    if (property === "username") setUsernameEdit(false);
+    authController.handleUsernameUpdate(value, user, setUsername);
   };
 
   return (
@@ -82,7 +83,7 @@ export default function UserComponent({ user }) {
             submitHandler={updateSubmitHandler}
           />
         ) : (
-          <p id="username">{user.displayName || "To be defined"}</p>
+          <p id="username">{username || "To be defined"}</p>
         )}
         {emailEdit ? (
           <UpdateForm

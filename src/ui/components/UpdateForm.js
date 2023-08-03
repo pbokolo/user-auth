@@ -13,7 +13,7 @@ export default function UpdateForm({
   };
   return (
     <>
-      <form onSubmit={(e) => submitHandler(e, property)}>
+      <form onSubmit={(e) => submitHandler(e, property, value)}>
         <FormTextInput
           type={propType}
           value={value}
