@@ -92,4 +92,15 @@
       }
     }
   }
+
+  &--reinit {
+    border: none;
+    // background-color: transparent;
+    padding: 0.1rem;
+    box-shadow: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    text-align: center;
+  }
 }

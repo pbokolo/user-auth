@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FormTextInput from "./FormTextInput";
+import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 
 export default function UpdateForm({
   property,
@@ -12,7 +13,7 @@ export default function UpdateForm({
     setValue(e.target.value);
   };
   return (
-    <>
+    <div className="form form--edit">
       <form onSubmit={(e) => submitHandler(e, property, value)}>
         <FormTextInput
           type={propType}
@@ -21,7 +22,9 @@ export default function UpdateForm({
           changeHandler={changeHandler}
         />
       </form>
-      <button onClick={() => reiniter(false)}>Reinit</button>
-    </>
+      <button className="btn btn--reinit" onClick={() => reiniter(false)}>
+        <ArrowBackOutlinedIcon fontSize="large" />
+      </button>
+    </div>
   );
 }
