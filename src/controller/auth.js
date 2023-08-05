@@ -42,6 +42,12 @@ class Controller {
   }
 
   async handleProfilePictureSubmit(file, setProfilePictureUrl) {
+    const [imgType] = file.type.split("/");
+    if (imgType !== "image") {
+      console.error("This file is not a valid image");
+      return;
+    }
+
     setProfilePictureUrl(URL.createObjectURL(file));
     const uploadTask = firebase.uploadProfilePicture(file);
     uploadTask.on(
