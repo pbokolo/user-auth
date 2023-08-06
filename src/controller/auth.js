@@ -43,11 +43,17 @@ class Controller {
 
   async handleProfilePictureSubmit(file, setProfilePictureUrl) {
     const [imgType] = file.type.split("/");
+    // Return if the file is not an image
     if (imgType !== "image") {
-      console.error("This file is not a valid image");
+      console.log("This file is not a valid image");
       return;
     }
 
+    // Return if the file size is greater than 1mb
+    if (file.size > 1000000) {
+      console.log("The image is too big");
+      return;
+    }
     setProfilePictureUrl(URL.createObjectURL(file));
     const uploadTask = firebase.uploadProfilePicture(file);
     uploadTask.on(
@@ -68,6 +74,7 @@ class Controller {
         });
       }
     );
+    console.log(file);
   }
 
   async handleUsernameUpdate(username, user, setUsername) {
